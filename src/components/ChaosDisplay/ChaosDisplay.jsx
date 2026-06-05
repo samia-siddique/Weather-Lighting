@@ -1,16 +1,28 @@
-// It shows dramatice lighting effects based on the Weather Condition and Time of Day.
+import "./ChaosDisplay.css";
 
-import React from 'react'
-import './ChaosDisplay.css'
-import SearchBar from '../SearchBar/SearchBar'
+const ChaosDisplay = ({ weather }) => {
+  if (!weather) {
+    return (
+      <div className="chaos-display">
+        <h1>Enter a city to start chaos 🌪️</h1>
+      </div>
+    );
+  }
 
-const ChaosDisplay = () => {
   return (
     <div className="chaos-display">
-      <h1>Chaos Weather Display</h1>
-      <SearchBar />
-    </div>
-  )
-}
+      <h1>Chaotic Weather 🌪️</h1>
 
-export default ChaosDisplay
+      <h2>{weather.city}</h2>
+      <h3>{weather.temp}°C</h3>
+
+      <p>
+        {weather.temp > 30
+          ? "You are being roasted by the sun ☀️"
+          : "Mild chaos detected 🌧️"}
+      </p>
+    </div>
+  );
+};
+
+export default ChaosDisplay;
