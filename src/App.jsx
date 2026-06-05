@@ -1,10 +1,11 @@
 import React from "react";
+import { useState } from "react";
 import SearchBar from "./components/SearchBar/SearchBar";
 import ChaosDisplay from "./components/ChaosDisplay/ChaosDisplay";
 
 function App() {
-  const [city, setCity] = React.useState("");
-  const [weather, setWeather] = React.useState(null);
+  const [city, setCity] = useState("");
+  const [weather, setWeather] = useState(null);
 
   return (
     <div>
