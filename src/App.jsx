@@ -1,20 +1,35 @@
 import { useState } from "react";
 import SearchBar from "./components/SearchBar/SearchBar";
 import ChaosDisplay from "./components/ChaosDisplay/ChaosDisplay";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState(null);
 
-  const handleSearch = (cityName) => {
-    const temp = Math.floor(Math.random() * 30) + 10;
+  const handleSearch = async (cityName) => {
+    try {
+      const response = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${import.meta.env.VITE_WEATHER_API_KEY}&units=metric`,
+      );
 
-    const data = {
-      city: cityName,
-      temp: temp,
-    };
+      const data = await response.json();
 
-    setWeather(data);
+      if (!data.main) {
+        alert("City not found!");
+        return null;
+      }
+
+      const weatherData = {
+        city: data.name,
+        temp: data.main.temp,
+        condition: data.weather[0].main,
+      };
+
+      setWeather(weatherData);
+    } catch (error) {
+      console.error("Error fetching weather data:", error);
+    }
   };
 
   console.log(import.meta.env.VITE_WEATHER_API_KEY);
@@ -22,6 +37,7 @@ function App() {
   return (
     <div>
       <h1>Weather Lighting</h1>
+      <Navbar />
       <SearchBar city={city} setCity={setCity} onSearch={handleSearch} />
 
       <ChaosDisplay weather={weather} />
