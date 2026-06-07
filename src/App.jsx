@@ -16,6 +16,9 @@ function App() {
 
     setWeather(data);
   };
+
+  console.log(import.meta.env.VITE_WEATHER_API_KEY);
+
   return (
     <div>
       <h1>Weather Lighting</h1>
