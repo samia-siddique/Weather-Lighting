@@ -36,7 +36,6 @@ function App() {
 
   return (
     <div>
-      <h1>Weather Lighting</h1>
       <Navbar />
       <SearchBar city={city} setCity={setCity} onSearch={handleSearch} />
 

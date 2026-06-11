@@ -1,0 +1,130 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+}
+
+/* LOGO */
+.nav-logo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.logo-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-row img {
+  height: 45px;
+}
+.nav-logo h2 {
+  color: #e5e5e5;
+  letter-spacing: 2px;
+}
+
+.nav-logo span {
+  color: #ffd500;
+}
+
+.nav-logo p {
+  font-family: monospace;
+  color: #aaa;
+  font-size: 12px;
+  margin-top: -15px;
+}
+
+/* LINKS */
+.nav-links ul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-family: monospace, sans-serif;
+  color: #ddd;
+  cursor: pointer;
+  flex-direction: column;
+  transition: 0.2s;
+}
+
+.nav-links img {
+  height: 40px;
+}
+
+.yellow:hover {
+  border: #ffd500;
+  border-bottom: 2.5px solid #ffd500;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+
+.green:hover {
+  border: #237841;
+  border-bottom: 2.5px solid #237841;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+
+.red:hover {
+  border: #d71920;
+  border-bottom: 2.5px solid #d71920;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+
+.navbar button {
+  background-color: #ffd500;
+  padding: 9px 30px;
+  border: none;
+  border-radius: 5px;
+}
+
+.navbar .button-img {
+  width: 30px;
+}
+
+/* LEGO ICON */
+.lego {
+  height: 26px;
+  transition: 0.2s;
+}
+
+.nav-links li:hover {
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+
+
+/* BUTTON */
+.cta-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffd500;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.cta-btn:hover {
+  transform: scale(1.05);
+}
+
+.btn-lego {
+  width: 28px;
+}

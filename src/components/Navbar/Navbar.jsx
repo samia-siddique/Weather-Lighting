@@ -1,34 +1,41 @@
 import React from "react";
+import "./Navbar.css";
+import assets from "../../assets/assets";
 
 const Navbar = () => {
   return (
-    <div className="Navbar">
-      <div className="left-bar">
-        {" "}
-        <img src="" alt="logo" />
-        <h3>
-          <span>BRICK</span>CAST
-        </h3>
+    <div className="navbar">
+      {/* LOGO */}
+      <div className="nav-logo">
+        <div className="logo-row">
+          <img src={assets.logo} alt="logo" />
+          <h2>
+            <span>BRICK</span>CAST
+          </h2>
+        </div>
         <p>Real Weather. Unhinged Forecasts.</p>
       </div>
 
-      <div className="middle-bar">
+      {/* LINKS */}
+      <div className="nav-links">
         <ul>
           <li>
-            Home <img src="" />
+            Home <img src={assets.yellowlego} className="lego yellow" />
           </li>
           <li>
-            About <img src="" />
+            About <img src={assets.greenlego} className="lego green" />
           </li>
           <li>
-            Forecast <img src="" />
+            Forecast <img src={assets.redlego} className=" lego red" />
           </li>
         </ul>
       </div>
 
-      <div className="right-bar">
-        <button>Get the App</button>
-      </div>
+      {/* BUTTON */}
+      <button className="cta-btn">
+        <img src={assets.legoblock} className="btn-lego" />
+        Get the App
+      </button>
     </div>
   );
 };
