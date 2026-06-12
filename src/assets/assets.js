@@ -1,5 +1,5 @@
 import logo from "./logo.png";
-import searchbar from "./searchbar.jpeg";
+import searchbar from "./search-bar.png";
 import legoblock from "./lego-block.svg";
 import yellowlego from "./yellow-lego.svg";
 import redlego from "./red-lego.svg";

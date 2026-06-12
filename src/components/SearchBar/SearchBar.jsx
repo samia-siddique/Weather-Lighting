@@ -1,18 +1,31 @@
-// User Types City Name in Search Bar and Presses Enter to Get Weather Information.
-
 import React from "react";
 import "./SearchBar.css";
+import assets from "../../assets/assets";
 
 const SearchBar = ({ city, setCity, onSearch }) => {
   return (
     <div className="search-bar">
-      <input
-        value={city}
-        onChange={(e) => setCity(e.target.value)}
-        type="text"
-        placeholder="Enter City..."
-      />
-      <button onClick={() => onSearch(city)}>Search</button>
+      <div className="input-text">
+        <h2>
+          WHAT'S THE <br></br> <span>WEATHER</span> <br></br> DOING TODAY?
+        </h2>
+
+        <p>
+          TYPE A CITY. GET <span>CHAOS.</span>
+        </p>
+      </div>
+
+      <div className="input-feild">
+        <img src={assets.searchbar} alt="" />
+        <input
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+          type="text"
+          placeholder="Enter City Name
+        ..."
+        />
+        <button onClick={() => onSearch(city)}>CHECK THE VIBES</button>
+      </div>
     </div>
   );
 };
