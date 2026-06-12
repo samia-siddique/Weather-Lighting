@@ -1,14 +1,18 @@
 import logo from "./logo.png";
-import searchbar from "./search-bar.png";
 import legoblock from "./lego-block.svg";
 import yellowlego from "./yellow-lego.svg";
 import redlego from "./red-lego.svg";
 import greenlego from "./green-lego.svg";
-import sun from "./sun.jpeg";
-import rain from "./rainy.jpeg";
-import cloud from "./cloud.jpeg";
-import city from "./city.jpeg";
-import cloudysun from "./cloudy-sun.jpeg";
+import navbar from "./navbar.png";
+import searchbar from "./searchbar.png";
+import sunnyicon from "./sunnybg-icon.png";
+import rainyicon from "./rainybg-icon.jpeg";
+import wintericon from "./winterbg-icon.png";
+import windyicon from "./windybg-icon.png";
+import cloudyicon from "./cloudyicon.jpeg";
+import humidity from "./humidity.png";
+import feelslike from "./feelslike.png";
+import temp from "./temp.png";
 
 const assets = {
   logo,
@@ -17,11 +21,16 @@ const assets = {
   yellowlego,
   redlego,
   greenlego,
-  sun,
-  rain,
-  cloud,
-  city,
-  cloudysun,
+  navbar,
+  searchbar,
+  sunnyicon,
+  rainyicon,
+  windyicon,
+  wintericon,
+  cloudyicon,
+  humidity,
+  feelslike,
+  temp,
 };
 
 export default assets;

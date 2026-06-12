@@ -1,25 +1,33 @@
 .input-feild{
-  background: #0055d4;
+  background: transparent;
   padding: 20px;
-  border-radius: 20px;
+  border-radius: 5px;
   display: flex;
   gap: 15px;
   align-items: center;
 }
 
 .input-feild input{
-  position: static;
-  transform: none;
   width: 450px;
-  padding: 20px;
-  font-size: 20px;
+  padding: 17px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  margin-top: 20px;
+}
+
+.input-feild input:hover{
+  border: none;
 }
 
 .input-feild button{
   position: static;
   background: #ffd500;
-  padding: 20px 35px;
+  padding: 16px 35px;
   font-weight: bold;
+  border: none;
+  margin-top: 20px;
+  border-radius: 5px;
 }
 
 

@@ -4,7 +4,14 @@ import assets from "../../assets/assets";
 
 const Navbar = () => {
   return (
-    <div className="navbar">
+    <div
+      className="navbar"
+      style={{
+        backgroundImage: `url(${assets.navbar})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
       {/* LOGO */}
       <div className="nav-logo">
         <div className="logo-row">
@@ -19,7 +26,7 @@ const Navbar = () => {
       {/* LINKS */}
       <div className="nav-links">
         <ul>
-          <li>
+          <li  onClick={() => document.getElementById("home").scrollIntoView({ behavior: "smooth" })}>
             Home <img src={assets.yellowlego} className="lego yellow" />
           </li>
           <li>

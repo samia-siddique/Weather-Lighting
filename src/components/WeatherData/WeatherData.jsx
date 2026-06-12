@@ -1,8 +1,49 @@
 import React from "react";
 import "./WeatherData.css";
+import assets from "../../assets/assets";
 
 const WeatherData = ({ weather }) => {
   if (!weather) return null;
+  
+
+
+  const now = new Date();
+
+  const date = now.toLocaleDateString("en-US", {
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+  });
+
+  const time = now.toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
+  let moodText;
+  let moodIcon;
+
+  const condition = weather?.condition?.toLowerCase() || ""; 
+
+ if (condition.includes("thunderstorm")) {
+    moodText = "The sky is leaking again.";
+    moodIcon = assets.rainyicon;
+  } else if (weather.condition.toLowerCase().includes("thunder")) {
+    moodText = "The clouds chose violence today.";
+    moodIcon = assets.stormicon;
+  } else if (weather.temp > 35) {
+    moodText = "Basically a hug from an oven.";
+    moodIcon = assets.sunnyicon;
+  } else if (weather.temp > 28) {
+    moodText = "The sun has personal issues today.";
+    moodIcon = assets.sunnyicon;
+  } else if (weather.temp < 10) {
+    moodText = "Penguin approved weather.";
+    moodIcon = assets.wintericon;
+  } else {
+    moodText = "The weather is behaving... suspiciously.";
+    moodIcon = assets.cloudyicon;
+  }
 
   return (
     <div>
@@ -10,8 +51,13 @@ const WeatherData = ({ weather }) => {
         <div className="weather-left">
           <h2>{weather.city}</h2>
 
+          <div className="date-time">
+            <p>{date} </p>
+            <p> {time}</p>
+          </div>
+
           <div className="weather-scene">
-            <img src={weather.icon} alt="" />
+            <img src={moodIcon} alt="" />
           </div>
         </div>
 
@@ -20,38 +66,45 @@ const WeatherData = ({ weather }) => {
           <p>{weather.condition}</p>
 
           <h3 className="mood">
-            {weather.temp > 30
-              ? "OVERDRAMATIC"
-              : weather.temp < 15
-                ? "FROZEN CHAOS"
-                : "MILD PANIC"}
+            {weather.condition.toLowerCase().includes("rain")
+              ? "MOOD: WET CHAOS"
+              : weather.temp > 30
+                ? "MOOD: OVERDRAMATIC"
+                : weather.temp < 15
+                  ? "MOOD: FROZEN CHAOS"
+                  : "MOOD: MILD PANIC"}
           </h3>
 
           <p className="chaos-text">
-            {weather.temp > 35
-              ? "You are being slow-cooked."
-              : weather.temp > 28
-                ? "Basically a hug from an oven."
-                : weather.temp < 10
-                  ? "Penguin approved weather."
-                  : "The weather is behaving... suspiciously."}
+            <img src={moodIcon} alt="" className="chaos-icon" />
+            {moodText}
           </p>
         </div>
 
         <div className="weather-right">
           <div className="stat">
-            <h4>Humidity</h4>
-            <p>{weather.humidity}%</p>
+            <img src={assets.humidity} />
+            <div className="stat-text">
+              <h4>Humidity</h4>
+
+              <p>{weather.humidity}%</p>
+            </div>
+          </div>
+
+          <div className="stat">       <img src={assets.feelslike} />
+            
+            <div className="stat-text">
+              <h4>Wind</h4>
+              <p>{weather.wind} km/h</p>
+            </div>
           </div>
 
           <div className="stat">
-            <h4>Wind</h4>
-            <p>{weather.wind} km/h</p>
-          </div>
-
-          <div className="stat">
-            <h4>Feels Like</h4>
-            <p>{weather.feelsLike}°C</p>
+     <img src={assets.temp} />
+            <div className="stat-text">
+              <h4>Feels Like</h4>
+              <p>{weather.feelsLike}°C</p>
+            </div>
           </div>
         </div>
       </div>
