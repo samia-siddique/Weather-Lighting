@@ -16,13 +16,17 @@ const SearchBar = ({ city, setCity, onSearch }) => {
       </div>
 
       <div className="input-feild">
-        <img src={assets.searchbar} alt="" />
+        {/* <img src={assets.searchbar} alt="" /> */}
         <input
           value={city}
           onChange={(e) => setCity(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              onSearch(city);
+            }
+          }}
           type="text"
-          placeholder="Enter City Name
-        ..."
+          placeholder="Enter City Name..."
         />
         <button onClick={() => onSearch(city)}>CHECK THE VIBES</button>
       </div>

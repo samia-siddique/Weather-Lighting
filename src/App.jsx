@@ -1,7 +1,8 @@
 import { useState } from "react";
 import SearchBar from "./components/SearchBar/SearchBar";
-import ChaosDisplay from "./components/ChaosDisplay/ChaosDisplay";
 import Navbar from "./components/Navbar/Navbar";
+import WeatherData from "./components/WeatherData/WeatherData";
+import assets from "./assets/assets";
 
 function App() {
   const [city, setCity] = useState("");
@@ -20,10 +21,26 @@ function App() {
         return null;
       }
 
+      let weatherImage;
+
+      if (data.weather[0].main === "Clear") {
+        weatherImage = assets.sun;
+      } else if (data.weather[0].main === "Rain") {
+        weatherImage = assets.rain;
+      } else if (data.weather[0].main === "Clouds") {
+        weatherImage = assets.cloud;
+      } else {
+        weatherImage = assets.cloudysun;
+      }
+
       const weatherData = {
         city: data.name,
-        temp: data.main.temp,
+        temp: Math.round(data.main.temp),
+        humidity: data.main.humidity,
+        feelsLike: Math.round(data.main.feels_like),
+        wind: Math.round(data.wind.speed),
         condition: data.weather[0].main,
+        icon: weatherImage,
       };
 
       setWeather(weatherData);
@@ -35,12 +52,11 @@ function App() {
   console.log(import.meta.env.VITE_WEATHER_API_KEY);
 
   return (
-    <div>
+    <>
       <Navbar />
       <SearchBar city={city} setCity={setCity} onSearch={handleSearch} />
-
-      <ChaosDisplay weather={weather} />
-    </div>
+      {weather && <WeatherData weather={weather} />}
+    </>
   );
 }
 
