@@ -22,7 +22,6 @@ const assets = {
   redlego,
   greenlego,
   navbar,
-  searchbar,
   sunnyicon,
   rainyicon,
   windyicon,

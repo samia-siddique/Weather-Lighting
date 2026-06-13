@@ -23,7 +23,6 @@ const SearchBar = ({ city, setCity, onSearch }) => {
           backgroundPosition: "center",
         }}
       >
-        {/* <img src={assets.searchbar} alt="" /> */}
         <input
           value={city}
           onChange={(e) => setCity(e.target.value)}
