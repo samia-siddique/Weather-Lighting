@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import SearchBar from "./components/SearchBar/SearchBar";
 import Navbar from "./components/Navbar/Navbar";
 import WeatherData from "./components/WeatherData/WeatherData";
 import About from "./components/About/About";
 import Footer from "./components/Footer/Footer";
+import SearchBar from "./components/SearchBar/SearchBar";
 
 function App() {
   const [city, setCity] = useState("");
@@ -58,6 +58,7 @@ function App() {
     <>
       <Navbar />
       <SearchBar city={city} setCity={setCity} onSearch={handleSearch} />
+      
 
       {weather && <WeatherData weather={weather} />}
 
