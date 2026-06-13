@@ -4,12 +4,7 @@ import assets from "../../assets/assets";
 
 const SearchBar = ({ city, setCity, onSearch }) => {
   return (
-    
-    <div id="home"
-      className="search-bar"
-    >
-
-      
+    <div id="home" className="search-bar">
       <div className="input-text">
         <h2>
           WHAT'S THE <br></br> <span>WEATHER</span> <br></br> DOING TODAY?
@@ -20,11 +15,14 @@ const SearchBar = ({ city, setCity, onSearch }) => {
         </p>
       </div>
 
-      <div className="input-feild"     style={{
-        backgroundImage: `url(${assets.searchbar})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}>
+      <div
+        className="input-feild"
+        style={{
+          backgroundImage: `url(${assets.searchbar})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
         {/* <img src={assets.searchbar} alt="" /> */}
         <input
           value={city}
