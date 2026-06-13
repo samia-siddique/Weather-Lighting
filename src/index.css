@@ -11,3 +11,25 @@ body {
     
  
 }
+
+@media (max-width: 1100px) {
+  .weather-container {
+    grid-template-columns: 1fr;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+
+  .about {
+    flex-direction: column;
+    height: auto;
+    padding: 80px 30px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+  }
+}

@@ -29,11 +29,11 @@ const Navbar = () => {
           <li  onClick={() => document.getElementById("home").scrollIntoView({ behavior: "smooth" })}>
             Home <img src={assets.yellowlego} className="lego yellow" />
           </li>
-          <li>
+          <li onClick={() => document.getElementById("about").scrollIntoView({ behavior: "smooth" })}>
             About <img src={assets.greenlego} className="lego green" />
           </li>
-          <li>
-            Forecast <img src={assets.redlego} className=" lego red" />
+          <li onClick={() => document.getElementById("credits").scrollIntoView({ behavior: "smooth" })}>
+            Credits <img src={assets.redlego} className=" lego red" />
           </li>
         </ul>
       </div>
@@ -41,7 +41,7 @@ const Navbar = () => {
       {/* BUTTON */}
       <button className="cta-btn">
         <img src={assets.legoblock} className="btn-lego" />
-        Get the App
+       Check the Weather
       </button>
     </div>
   );

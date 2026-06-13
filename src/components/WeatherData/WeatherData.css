@@ -12,12 +12,30 @@
 
   overflow: hidden;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+  animation: floatCard 4s ease-in-out infinite;
 }
+
 
 .weather-left {
   padding-left: 25px;
   margin-top: -20px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent);
+
+  font-size: 42px;
+  color: #e5e5e5;
+  text-shadow: 0 0 10px rgba(255,255,255,0.1);
+  animation: shakeText 3s infinite;
+}
+
+.weather-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 213, 0, 0.08);
+  pointer-events: none;
+  animation: pulseBorder 2.5s infinite;
 }
 
 .date-time {
@@ -33,10 +51,18 @@
   font-size: 16px;
 }
 
+.weather-left{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: -20px;
+}
 .weather-left h2 {
   font-size: 42px;
   color: #e5e5e5;
   margin-bottom: 40px;
+  
 }
 
 .weather-scene img {
@@ -68,6 +94,11 @@
   margin: 0;
   color: #e5e5e5;
   font-family: "Press Start 2P", monospace;
+
+  font-size: 65px;
+  color: #fff;
+  text-shadow: 0 0 20px rgba(255,255,255,0.2);
+  animation: pulseTemp 2s infinite;
 }
 
 .weather-center > p:first-of-type {
@@ -77,13 +108,21 @@
 }
 
 .mood {
-  color: #b54cff;
   margin: 15px 0;
   font-size: 20px;
   font-family: monospace;
   display: inline-block;
   width: fit-content;
-  border-bottom: 2px solid #b54cff;
+
+  color: #b54cff;
+  border-bottom: 2px dashed #b54cff;
+  animation: flickerMood 1.8s infinite;
+}
+
+@keyframes flickerMood {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
 }
 
 .chaos-text {
@@ -108,6 +147,19 @@
   display: flex;
   align-items: center;
   gap: 5px;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.stat::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: rgba(255,255,255,0.05);
+  top: 0;
+  animation: scan 3s infinite;
 }
 
 .stat:hover {

@@ -1,61 +1,68 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SearchBar from "./components/SearchBar/SearchBar";
 import Navbar from "./components/Navbar/Navbar";
 import WeatherData from "./components/WeatherData/WeatherData";
-import assets from "./assets/assets";
+import About from "./components/About/About";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState(null);
 
-  const handleSearch = async (cityName) => {
+  const defaultCities = ["Riyadh","London",  "Tokyo", "New York"];
+
+  const fetchWeather = async (cityName) => {
     try {
-      const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${import.meta.env.VITE_WEATHER_API_KEY}&units=metric`,
+      const res = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${import.meta.env.VITE_WEATHER_API_KEY}&units=metric`
       );
 
-      const data = await response.json();
+      const data = await res.json();
 
-      if (!data.main) {
-        alert("City not found!");
-        return null;
-      }
+      if (!data.main) return null;
 
-      let weatherImage;
-
-      if (data.weather[0].main === "Clear") {
-        weatherImage = assets.sun;
-      } else if (data.weather[0].main === "Rain") {
-        weatherImage = assets.rain;
-      } else if (data.weather[0].main === "Clouds") {
-        weatherImage = assets.cloud;
-      } else {
-        weatherImage = assets.cloudysun;
-      }
-
-      const weatherData = {
+      return {
         city: data.name,
         temp: Math.round(data.main.temp),
         humidity: data.main.humidity,
         feelsLike: Math.round(data.main.feels_like),
         wind: Math.round(data.wind.speed),
         condition: data.weather[0].main,
-        icon: weatherImage,
       };
-
-      setWeather(weatherData);
-    } catch (error) {
-      console.error("Error fetching weather data:", error);
+    } catch (err) {
+      console.error(err);
+      return null;
     }
   };
 
-  console.log(import.meta.env.VITE_WEATHER_API_KEY);
+  // 🔥 LOAD DEFAULT CITY ON START
+  useEffect(() => {
+    const loadDefault = async () => {
+      const data = await fetchWeather(defaultCities[0]); // London
+      if (data) setWeather(data);
+    };
+
+    loadDefault();
+  }, []);
+
+  const handleSearch = async (cityName) => {
+    const data = await fetchWeather(cityName);
+    if (!data) {
+      alert("City not found!");
+      return;
+    }
+    setWeather(data);
+  };
 
   return (
     <>
       <Navbar />
       <SearchBar city={city} setCity={setCity} onSearch={handleSearch} />
+
       {weather && <WeatherData weather={weather} />}
+
+      <About />
+      <Footer />
     </>
   );
 }

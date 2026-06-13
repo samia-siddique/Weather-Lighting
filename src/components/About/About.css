@@ -1,0 +1,129 @@
+.about {
+  height: 100vh;
+  width: 100%;
+  padding: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.about::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255,255,255,0.02),
+    rgba(255,255,255,0.02) 2px,
+    transparent 2px,
+    transparent 6px
+  );
+  animation: moveNoise 6s linear infinite;
+  top: -50%;
+  left: -50%;
+  z-index: 0;
+}
+
+@keyframes moveNoise {
+  from { transform: translate(0,0); }
+  to { transform: translate(40px,40px); }
+}
+
+/* LEFT SIDE */
+.about-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+}
+
+.about-text h2 {
+  font-size: 48px;
+   color: #dfdada;
+  text-transform: uppercase;
+  animation: flicker 2.5s infinite;
+}
+
+.about-text h2 span{
+  color: #ffd500;
+}
+
+@keyframes flicker {
+  0% { opacity: 1; transform: translateX(0); }
+  2% { opacity: 0.6; transform: translateX(-2px); }
+  4% { opacity: 1; transform: translateX(2px); }
+  6% { opacity: 0.4; }
+  8% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+.about-text p {
+  max-width: 500px;
+  opacity: 0.8;
+  line-height: 1.6;
+}
+
+/* SYSTEM MESSAGE */
+.system-msg {
+  margin-top: 20px;
+  font-size: 12px;
+  opacity: 0.5;
+  font-family: monospace;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 0.2; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0.2; }
+}
+
+
+.features {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  z-index: 1;
+}
+
+/* FEATURE CARDS */
+.features div {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 18px;
+  border-radius: 12px;
+  font-size: 14px;
+  transition: all 0.25s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+/* CHAOTIC HOVER */
+.features div:hover {
+  transform: translateY(-6px) rotate(-1deg) scale(1.03);
+  background: rgba(255, 213, 0, 0.08);
+  border-color: rgba(255, 213, 0, 0.4);
+}
+
+
+.features div::after {
+  content: "☁️";
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  opacity: 0.2;
+  transition: 0.2s;
+}
+
+.features div:hover::after {
+  content: "⚡";
+  opacity: 0.8;
+  transform: scale(1.3);
+}

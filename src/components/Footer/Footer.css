@@ -1,0 +1,142 @@
+.footer {
+  position: relative;
+  padding: 80px 40px;
+  text-align: center;
+  overflow: hidden;
+  border-top: 2px solid rgba(255, 213, 0, 0.15);
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.02) 2px,
+    transparent 2px,
+    transparent 6px
+  );
+
+  animation: moveNoise 6s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes moveNoise {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(40px, 40px);
+  }
+}
+
+.footer-logo {
+  font-size: 42px;
+  color: #dfdada;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.footer-logo span{
+  color: #ffd500;
+}
+
+.footer-tagline {
+  color: #aaa;
+  margin-bottom: 10px;
+  font-family: monospace;
+}
+
+
+.footer-card {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  fill: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+ margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  transition: 0.3s;
+  display: inline-block;
+  width: fit-content;text-align: left;
+}
+
+.footer-card:hover {
+  transform: translateY(-6px) rotate(-1deg);
+  border-color: rgba(255, 213, 0, 0.3);
+}
+
+.footer-card h4 {
+  color: #ffd500;
+  margin-bottom: -10px;
+  font-family: monospace;
+  font-size: 15px;
+}
+
+.footer-card p {
+  color: #d0d0d0;
+  line-height: 1.5;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 60px;
+  max-width: 1000px;
+  margin: 40px auto;
+}
+
+.footer-left {
+  flex: 1;
+  text-align: left;
+}
+
+.footer-right {
+  width: 420px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-terminal {
+  width: min(400px, 100%);
+
+  width: 100%;
+  margin: auto;
+  text-align: left;
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 20px;
+  font-family: monospace;
+  color: #8cff8c;
+}
+
+.warning-box {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  width: 100%;
+
+  
+}
+
+.footer-terminal p {
+  margin: 8px 0;
+}
+
+.footer-bottom {
+  margin-top: 38px;
+  margin-bottom: -70px;
+  color: #777;
+  font-size: 14px;
+  font-family: monospace;
+}
+

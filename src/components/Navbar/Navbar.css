@@ -3,9 +3,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 0px 40px;
-  
 }
-
+  
 /* LOGO */
 .nav-logo {
   display: flex;
@@ -21,7 +20,13 @@
 
 .logo-row img {
   height: 45px;
+  transition: 0.3s;
 }
+
+.logo-row:hover img {
+  transform: rotate(-5deg) scale(1.05);
+}
+
 .nav-logo h2 {
   color: #e5e5e5;
   letter-spacing: 2px;
@@ -48,15 +53,19 @@
 }
 
 .nav-links li {
+
   display: flex;
   align-items: center;
   gap: 8px;
   font-size: 14px;
-  font-family: monospace, sans-serif;
+  font-family: monospace;
   color: #ddd;
   cursor: pointer;
   flex-direction: column;
   transition: 0.2s;
+
+  padding: 6px 10px;
+  border-radius: 8px;
 }
 
 .nav-links img {
@@ -98,7 +107,11 @@
 /* LEGO ICON */
 .lego {
   height: 26px;
-  transition: 0.2s;
+  transition: 0.3s;
+}
+
+.nav-links li:hover .lego {
+  filter: drop-shadow(0 0 6px rgba(255, 213, 0, 0.4));
 }
 
 .nav-links li:hover {
