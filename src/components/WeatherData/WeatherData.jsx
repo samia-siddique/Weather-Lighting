@@ -26,7 +26,7 @@ const WeatherData = ({ weather }) => {
     moodIcon = assets.rainyicon;
   } else if (condition.includes("thunder")) {
     moodText = "The clouds chose violence today.";
-    moodIcon = assets.stormicon;
+    moodIcon = assets.rainyicon;
   } else if (weather.temp > 35) {
     moodText = "Basically a hug from an oven.";
     moodIcon = assets.sunnyicon;
