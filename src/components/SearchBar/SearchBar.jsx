@@ -1,6 +1,6 @@
 import React from "react";
 import assets from "../../assets/assets";
-import "./SearchBar.css";
+import "./Searchbar.css";
 
 const SearchBar = ({ city, setCity, onSearch }) => {
   return (
